@@ -115,13 +115,13 @@ class BingChatResponseSensor(SensorEntity):
 
                 async for response in sydney.ask_stream(sanitized_prompt):
                     query_response += response
+            query_response = await clean_response(query_response)
+
         except Exception as inst:
             query_response = inst
 
         _LOGGER.info(f"Bing response: {query_response}")
-
-        query_response = await clean_response(query_response)
-
+        
         return query_response
 
     @callback
