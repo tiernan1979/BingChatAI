@@ -1,0 +1,13 @@
+{
+    "domain": "BingChatAI",
+    "name": "BingChatAI",
+    "documentation": "https://github.com/tiernan1979/BingChatAI",
+    "dependencies": [],
+    "requirements": [
+         "sydney-py"
+    ],
+    "codeowners": ["@tiernan1979"],
+    "extra_quality_scale": "platinum",
+    "version": "0.1.0",
+    "config_flow": false
+}
