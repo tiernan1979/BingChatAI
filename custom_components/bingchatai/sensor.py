@@ -106,6 +106,7 @@ class BingChatResponseSensor(SensorEntity):
 
         # Set Cookie
         os.environ["BING_U_COOKIE"] = cookie
+        os.environ["BING_COOKIES"] = cookie
 
         # Sydney Client
 
@@ -114,8 +115,8 @@ class BingChatResponseSensor(SensorEntity):
 
                 async for response in sydney.ask_stream(sanitized_prompt):
                     query_response += response
-        except:
-            query_response = "Error"
+        except Exception as inst:
+            query_response = inst
 
         _LOGGER.info(f"Bing response: {query_response}")
 
