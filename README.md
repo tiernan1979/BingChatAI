@@ -12,7 +12,7 @@
 This custom component for Home Assistant allows you to generate text responses using Bing at no expense.<BR>
 This Integration was forked from HassAssistants MindDB integration. https://github.com/Hassassistant/OpenMindsAI/
 
-This integration requires sydney-py which connects to the Bing AI.<BR>
+This integration requires sydney-py https://github.com/vsakkas/sydney.py which connects to the Bing AI.<BR>
 Please note that the Cookie does expire every 2 weeks and also appears to timeout every 2 days.<BR>
 I currently have a window refreshing on a PC as a work around to this timeout.<BR>
 
