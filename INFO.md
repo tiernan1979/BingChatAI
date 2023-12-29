@@ -7,29 +7,24 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
 
-This custom component for Home Assistant allows you to generate text responses using OpenAI's GPT-3 model.
+This custom component for Home Assistant allows you to generate text responses using Bing's OpenAI's GPT-4 model.
 
-Head to **[This Link](https://platform.openai.com/account/api-keys)** to get you API key from OpenAI. 
-
-<img src="https://raw.githubusercontent.com/Hassassistant/openai_response/main/misc/Capture1.jpg"
-     width="80%" />
-
+Head to **[This Link](https://www.bing.com/chat)** to get you cookie from Bing Chat. 
 
 
 ## Installation
-**1.** Copy the **openai_response** folder to your Home Assistant's custom_components directory. If you don't have a **custom_components** directory, create one in the same directory as your **configuration.yaml** file.
+**1.** Copy the **bing_response** folder to your Home Assistant's custom_components directory. If you don't have a **custom_components** directory, create one in the same directory as your **configuration.yaml** file.
 
 **2.** Add the following lines to your Home Assistant **configuration.yaml** file:
 
 ```yaml
 sensor:
-  - platform: openai_response
-    api_key: YOUR_OPENAI_API_KEY
-    model: "text-davinci-003" # Optional, defaults to "text-davinci-003"
-    name: "hassio_openai_response" # Optional, defaults to "hassio_openai_response"
+  - platform: BingChatAI
+    name: Bing_response # Optional, Defaults to "BingChatAI"
+    input_name: "gpt_prompt" # Optional, defaults to "bing_text"
+    input_name2: "gpt_prompt2" # Optional, defaults to "bing_text2"
+    style: "precise" # Optional, defaults to "precise"
 ```
-Replace **YOUR_OPENAI_API_KEY** with your actual OpenAI API key.
-
 **3.** Restart Home Assistant.
 
 ## Usage
@@ -44,10 +39,10 @@ Note you can also create this input_text via the device helpers page!
 
 If you are creating via YAML, you will need to restart again to activate the new entity,
 
-To generate a response from GPT-3, update the **input_text.gpt_input** entity with the text you want to send to the model. The generated response will be available as an attribute of the **sensor.hassio_openai_response** entity.
+To generate a response from Bing, update the **input_text.gpt_text** and **input_text.bing_text2** (if the line is greater than 255) entity with the text you want to send to the model. The generated response will be available as an attribute of the **sensor.Bing_response** entity.
 
 ## Example
-To display the GPT-3 input and response in your Home Assistant frontend, add the following to your **ui-lovelace.yaml** file or create a card in the Lovelace UI:
+To display the Bing input and response in your Home Assistant frontend, add the following to your **ui-lovelace.yaml** file or create a card in the Lovelace UI:
 
 ```yaml
 type: grid
@@ -56,17 +51,13 @@ columns: 1
 cards:
   - type: entities
     entities:
-      - entity: input_text.gpt_input
+      - entity: input_text.Bing_text
+      - entity: input_text.Bing_text
   - type: markdown
-    content: '{{ state_attr(''sensor.hassio_openai_response'', ''response_text'') }}'
+    content: '{{ state_attr(''sensor.Bing_response'', ''response_text'') }}'
     title: ChatGPT Response
 ```
-Now you can type your text in the GPT-3 Input field, and the generated response will be displayed in the response card.
+Now you can type your text in the Bing Input field, and the generated response will be displayed in the response card.
 
-<img src="https://github.com/Hassassistant/openai_response/blob/main/misc/Card.PNG"
-     width="50%" />
 
-## License
-This project is licensed under the MIT License - see the **[LICENSE](https://chat.openai.com/LICENSE)** file for details.
-
-**Disclaimer:** This project is not affiliated with or endorsed by OpenAI. Use the GPT-3 API at your own risk, and be aware of the API usage costs associated with the OpenAI API.
+**Disclaimer:** This project is not affiliated with or endorsed by OpenAI or Bing. Use Bing at your own risk, and be aware of cookie expiry and connection timeout.
