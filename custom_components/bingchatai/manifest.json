@@ -4,7 +4,7 @@
     "documentation": "https://github.com/tiernan1979/BingChatAI",
     "dependencies": [],
     "requirements": [
-         "sydney-py"
+         "sydney-py==17.4"
     ],
     "codeowners": ["@tiernan1979"],
     "extra_quality_scale": "platinum",
