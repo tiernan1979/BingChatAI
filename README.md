@@ -9,7 +9,7 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
 
-This custom component for Home Assistant allows you to generate text responses using Bing at no expense.
+This custom component for Home Assistant allows you to generate text responses using Bing at no expense.<BR>
 This Integration was forked from HassAssistants MindDB integration. https://github.com/Hassassistant/OpenMindsAI/
 
 
