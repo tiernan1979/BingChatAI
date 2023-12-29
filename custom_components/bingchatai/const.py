@@ -1,0 +1,5 @@
+DOMAIN = "BingChatAI"
+NAME = "Bing_Sensor"
+CONF_STYLE = "Precise"
+INPUT_NAME1 = "bing_text"
+INPUT_NAME2 = "bing_text2"
