@@ -57,10 +57,11 @@ sensor:
 **3.** Restart Home Assistant.
 
 ## Usage
-To generate a response from GPT-3, update the **input_text.gpt_prompt** and **input_text.gpt_prompt2** (if the string is greater than 255) entity with the text you want to send to the model. The generated response will be available as an attribute of the **sensor.bing_response** entity.
+To generate a response from Bing, update the **input_text.gpt_prompt2** first (if over 255 characters) then **input_text.gpt_prompt** <BR>
+entity with the text you want to send to the model. The generated response will be available as an attribute of the **sensor.bing_response** entity.
 
 ## Example
-To display the GPT-3 input and response in your Home Assistant frontend, add the following to your **ui-lovelace.yaml** file or create a card in the Lovelace UI:
+To display the Bing input and response in your Home Assistant frontend, add the following to your **ui-lovelace.yaml** file or create a card in the Lovelace UI:
 
 ```yaml
 type: grid
