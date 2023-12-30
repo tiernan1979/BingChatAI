@@ -10,7 +10,7 @@ This Integration was forked from HassAssistants MindDB integration. https://gith
 This integration requires sydney-py https://github.com/vsakkas/sydney.py which connects to the Bing AI.<BR>
 Which is installed when installing via hacs or Manually.<BR><BR>
 Please note that the Cookie does expire every 2 weeks and also appears to timeout every 2 days.<BR>
-<i> The current version of sydney.py might work without a cookie.</i><BR>
+<i> The current version i've locked this integration to of sydney.py might work without a cookie.</i><BR>
 I currently have a window refreshing on a PC as a work around to this timeout.<BR>
 
 ## Get Cookie from Bing Chat
