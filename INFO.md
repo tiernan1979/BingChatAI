@@ -23,12 +23,12 @@ sensor:
 **3.** Restart Home Assistant.
 
 ## Usage
-Create an **input_text.gpt_input** entity in Home Assistant to serve as the input for the GPT-3 model. Add the following lines to your configuration.yaml file:
+Create an **input_text.gpt_prompt** entity in Home Assistant to serve as the input for the GPT-3 model. Add the following lines to your configuration.yaml file:
 
 ```yaml
 input_text:
   gpt_input:
-    name: GPT-3 Input
+    name: Bing Input
 ```
 Note you can also create this input_text via the device helpers page!
 
@@ -47,7 +47,7 @@ cards:
   - type: entities
     entities:
       - entity: input_text.Bing_text
-      - entity: input_text.Bing_text
+      - entity: input_text.Bing_text2
   - type: markdown
     content: '{{ state_attr(''sensor.Bing_response'', ''response_text'') }}'
     title: ChatGPT Response
