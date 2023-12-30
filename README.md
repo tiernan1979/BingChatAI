@@ -1,9 +1,4 @@
 
-<img src="https://github.com/Hassassistant/OpenMindsAI/blob/main/misc/openmindsai.png?raw=true"
-     width="20%"
-     align="right"
-     style="float: right; margin: 10px 0px 20px 20px;" />
-
 # Home Assistant Bing Response Sensor 
 # (No API Key Needed)
 
