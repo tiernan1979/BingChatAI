@@ -85,7 +85,7 @@ class BingChatResponseSensor(SensorEntity):
     def extra_state_attributes(self):
         return {"response_text": self._response_text}
 
-    async def ask(self, prompt):
+    async def ask(self, prompt, cookie):
         _LOGGER.debug(f"Asking Bing")
         # Check if the prompt starts and ends with double quotes, if not, add them.
         if not prompt.startswith('"'):
@@ -141,7 +141,7 @@ class BingChatResponseSensor(SensorEntity):
             self._state = "Query Starting"
             self._response_text = "Sending Request..." + new_query
             self.async_write_ha_state()
-            response = await self.ask(new_query)
+            response = await self.ask(new_query, self._cookie)
             self._response_text = response
             self._state = "Query Complete"
             self.async_write_ha_state()
