@@ -20,6 +20,7 @@ from .const import (
     INPUT_NAME2,
     NAME,
     CONF_STYLE,
+    COOKIE,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -28,6 +29,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_NAME, default=NAME): cv.string,
     vol.Optional("input_name", default=INPUT_NAME1): cv.string,
     vol.Optional("input_name_2", default=INPUT_NAME2): cv.string,
+    vol.Optional("cookie", default=COOKIE): cv.string,
     vol.Required("style", default=CONF_STYLE): cv.string,
 })
 
@@ -35,8 +37,9 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     name = config[CONF_NAME]
     input_name = config["input_name"]
     input_name_2 = config["input_name_2"]
+    cookie = config["cookie"]
     style = config["style"]
-    async_add_entities([BingChatResponseSensor(hass, name, input_name, input_name_2, style)], True)
+    async_add_entities([BingChatResponseSensor(hass, name, input_name, input_name_2, cookie, style)], True)
 
 async def clean_response(message):
     message = message.replace('[["','')
@@ -60,11 +63,12 @@ async def clean_response(message):
 
 
 class BingChatResponseSensor(SensorEntity):
-    def __init__(self, hass, name, input_name, input_name_2, style):
+    def __init__(self, hass, name, input_name, input_name_2, cookie, style):
         self._hass = hass
         self._name = name
         self._input_name = input_name
         self._input_name_2 = input_name_2
+        selc._cookie = cookie
         self._style = style
         self._state = None
         self._response_text = ""
