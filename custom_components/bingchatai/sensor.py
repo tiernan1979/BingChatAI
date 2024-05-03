@@ -68,7 +68,7 @@ class BingChatResponseSensor(SensorEntity):
         self._name = name
         self._input_name = input_name
         self._input_name_2 = input_name_2
-        selc._cookie = cookie
+        self._cookie = cookie
         self._style = style
         self._state = None
         self._response_text = ""
