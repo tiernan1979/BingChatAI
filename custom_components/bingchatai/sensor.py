@@ -93,23 +93,25 @@ class BingChatResponseSensor(SensorEntity):
         if not prompt.endswith('"'):
             prompt = prompt + '"'
 
-        cookie = ""
+        
         #data = urllib.request.urlopen(self._cookieurl)
-        fo = open("cookie.txt","r")
-        cookie = fo.read()
-        fo.close()
+        if len(cookie) < 1:
+            cookie = ""
+            fo = open("cookie.txt","r")
+            cookie = fo.read()
+            fo.close()
+            cookie = cookie.replace("\n","")
+            cookie = cookie.replace("#033[0m","")
 
         # Replace all double quotes except for the ones at the start and end
         sanitized_prompt = '"' + prompt[1:-1].replace('"', '') + '"'
         query_response = ""
 
-        cookie = cookie.replace("\n","")
-        cookie = cookie.replace("#033[0m","")
 
         _LOGGER.info(f"Bing Cookie: {cookie}")
 
         # Set Cookie
-        os.environ["BING_U_COOKIE"] = cookie
+        # os.environ["BING_U_COOKIE"] = cookie
         os.environ["BING_COOKIES"] = cookie
 
         # Sydney Client
