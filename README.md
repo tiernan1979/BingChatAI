@@ -48,7 +48,7 @@ sensor:
     name: "BingChatAI"
 ## Optional. Defaults to BingChatAI
     input_name: "bing_text"
-    input_name2 "bing_text2"
+    input_name2: "bing_text2"
 ## Optional. Defaults to bing_text. This is your input_text name
     style: "Precise"
 ## Optional. Defaults to Precise. This is the search Style
